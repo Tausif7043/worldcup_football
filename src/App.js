@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navigation from './components/Navigation'
-import Container from './components/Container'
+import Navigation from './components/Navigation';
+import Container from './components/Container';
 
 class App extends Component {
   render() {
