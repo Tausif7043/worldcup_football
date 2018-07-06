@@ -1,29 +1,27 @@
-import React from 'react'
+import React from 'react';
+import API from '../api';
 
-class Teams extends React.Component {
-    static defaultProps = {
-        items: [{text: 'Some text1'},{text: 'Some text2'},{text: 'Some text3'}]
+export default class Teams extends React.Component {
+    state = {
+        countries: []
+    }
+    componentDidMount() {
+        API.get('?action=get_countries&APIkey=39eb2b62204d86c5b16da9acc8906058f1404c6af24a08d444e65ee38997d02c')
+            .then(res => {
+                this.setState({ countries: res.data });
+            })
     }
     render() {
         return (
             <div>
-                <div class="container-fluid bg-3 text-center">
-                    <h3>Some of my Work</h3><br />
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <p>Some text..</p>
-                        </div>
-                        <div class="col-sm-3">
-                            <p>Some text..</p>
-                        </div>
-                        <div class="col-sm-3">
-                            <p>Some text..</p>
-                        </div>
+                <div className="container-fluid bg-3 text-center">
+                    <h3>Teams</h3><br />
+                    <div className="row">
+                        {this.state.countries.map((country, index) => <div className="col-sm-3" key={'team' + index}><p>{country.country_name}</p>
+                        </div>)}
                     </div>
                 </div><br />
             </div>
         )
     }
 }
-
-export default Teams

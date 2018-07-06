@@ -1,19 +1,20 @@
 import React from 'react'
+import api from '../api'
 
 class Players extends React.Component { 
     render() {
         return (
-            <div>
-                <div class="container-fluid bg-3 text-center">
-                    <h3>Players</h3><br />
-                    <div class="row">
-                        <div class="col-sm-3">
+            <div> 
+                <div className="container-fluid bg-3 text-center">
+                    <h3>Home</h3><br />
+                    <div className="row">
+                        <div className="col-sm-3">
                             <p>Some text..</p>
                         </div>
-                        <div class="col-sm-3">
+                        <div className="col-sm-3">
                             <p>Some text..</p>
                         </div>
-                        <div class="col-sm-3">
+                        <div className="col-sm-3">
                             <p>Some text..</p>
                         </div>
                     </div>

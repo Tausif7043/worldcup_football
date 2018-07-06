@@ -1,33 +1,26 @@
 import React from 'react';
+import Home from './Home';
 import Teams from './Teams';
 import Fixtures from './Fixtures';
 import Groups from './Groups';
 import Players from './Players';
 
-const pageLoadComponent = () => {
-    const pathName = window.location.pathname
-    console.log('pathName', pathName)
+const PageLoadComponent = () => {
+    return (
+        window.location.pathname === '/teams' ? <Teams /> 
+        : (window.location.pathname === '/fixtures' ? <Fixtures /> 
+        : (window.location.pathname === '/groups' ? <Groups /> 
+        : (window.location.pathname === '/players' ? <Players /> 
+        : <Home />)))
+    )
 }
 
 class PageContent extends React.Component {
+    componentDidMount () {}
     render() {
         return (
             <div>
-                <div className="container-fluid bg-3 text-center">
-                    <h3>Some of my Work</h3><br />
-                    <div className="row">
-                        <div className="col-sm-3">
-                            <p>Some text..</p>
-                        </div>
-                        <div className="col-sm-3">
-                            <p>Some text..</p>
-                        </div>
-                        <div className="col-sm-3">
-                            <p>Some text..</p>
-                        </div>
-                    </div>
-                </div><br />
-                <Fixtures />
+                <PageLoadComponent />
             </div>
         )
     }
